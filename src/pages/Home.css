@@ -1,0 +1,208 @@
+.eyebrow.eyebrow--sans,
+.text p.eyebrow {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-gold);
+}
+
+/* ---------- Discover ---------- */
+.discover {
+  position: relative;
+  overflow: hidden;
+}
+
+.discover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background-image: var(--mandala);
+  background-size: 420px auto;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.discover__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* collage sized from the design (554 × 502) and scaled with the column */
+.discover__media {
+  position: relative;
+  aspect-ratio: 554 / 502;
+  container-type: inline-size;
+}
+
+.discover__chef {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 46.6%;
+  aspect-ratio: 258 / 366;
+  object-fit: cover;
+  object-position: top;
+}
+
+.discover__food {
+  position: absolute;
+  left: 54.3%;
+  top: 0;
+  width: 45.7%;
+  aspect-ratio: 253 / 194;
+  object-fit: cover;
+}
+
+.discover__quote {
+  position: absolute;
+  left: 46.6%;
+  top: 43.4%;
+  width: 53.4%;
+  min-height: 56.6%;
+  margin: 0;
+  z-index: 1;
+  background: var(--color-gold);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 3.1cqw;
+  line-height: 1.38;
+  padding: 2.5cqw 2cqw 3cqw;
+}
+
+.discover__quote span {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 15cqw;
+  line-height: 0.6;
+  height: 7cqw;
+  margin-top: 2cqw;
+}
+
+.discover .text p { color: #fff; }
+
+/* ---------- Recipes ---------- */
+.recipes { padding: 90px 0 40px; }
+.recipes .section-title { margin-bottom: 26px; }
+
+.recipes__row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.recipe { margin: 0; }
+
+.recipe__img { overflow: hidden; }
+
+.recipe__img img {
+  width: 100%;
+  aspect-ratio: 270 / 308;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.recipe:hover .recipe__img img { transform: scale(1.08); }
+
+.recipe figcaption {
+  text-align: center;
+  font-size: 0.92rem;
+  padding: 30px 10px;
+  transition: color 0.3s;
+}
+
+.recipe:hover figcaption { color: var(--color-gold); }
+
+/* ---------- Journey ---------- */
+.journey__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.journey .text p { color: #fff; }
+.journey__btn { margin-top: 24px; }
+
+.journey__img {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.journey__features { display: grid; gap: 26px; }
+
+.feature {
+  display: grid;
+  grid-template-columns: 62px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.feature__icon {
+  color: var(--color-gold);
+  width: 56px;
+  height: 56px;
+  transition: transform 0.4s;
+}
+
+.feature:hover .feature__icon { transform: rotate(-8deg) scale(1.08); }
+
+.feature h3 {
+  color: var(--color-gold);
+  font-size: 1.35rem;
+  margin-bottom: 6px;
+}
+
+.feature p { font-size: 0.95rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .discover__grid { grid-template-columns: 1fr; gap: 50px; }
+  .discover__media { width: 100%; max-width: 600px; margin: 0 auto; }
+  .discover::before { width: 100%; }
+
+  .journey__grid { grid-template-columns: 1fr 1fr; }
+  .journey__features { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 767px) {
+  .discover__grid { gap: 36px; }
+  /* mobile: chef photo with the quote box overlapping below it */
+  .discover__media { aspect-ratio: auto; }
+  .discover__chef { position: static; width: 78%; }
+  .discover__food { display: none; }
+  .discover__quote {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    min-height: 0;
+    margin: -70px 0 0 18%;
+    font-size: 0.98rem;
+    padding: 14px 14px 18px;
+  }
+  .discover__quote span { font-size: 4rem; height: 30px; margin-top: 8px; }
+
+  .recipes { padding-top: 60px; }
+  /* swipeable row on mobile */
+  .recipes__row {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 62%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .recipes__row::-webkit-scrollbar { display: none; }
+  .recipe { scroll-snap-align: center; }
+  .recipe figcaption { padding: 18px 8px 10px; }
+
+  .journey__grid { grid-template-columns: 1fr; }
+  .journey__img { max-width: 260px; }
+  .journey__features { grid-template-columns: 1fr; }
+  .feature h3 { font-size: 1.2rem; }
+}

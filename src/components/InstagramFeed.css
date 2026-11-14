@@ -1,0 +1,117 @@
+.ig-sec .section-title a:hover { color: #fff; }
+
+.ig {
+  position: relative;
+  padding: 0 46px;
+}
+
+.ig__viewport { overflow: hidden; }
+
+.ig__track {
+  display: flex;
+  align-items: flex-start;
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.ig__item {
+  flex: 0 0 calc(100% / var(--per-view));
+  padding: 0 14px;
+}
+
+/* Instagram's own post card (image/video + caption + likes) */
+.ig__embed { min-height: 480px; }
+
+.ig__embed .instagram-media,
+.ig__embed iframe {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border-radius: 4px !important;
+}
+
+.ig__embed blockquote.instagram-media {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.ig__embed blockquote a { color: #3897f0; font-weight: 600; }
+
+/* fallback photo tiles (until real post links are added) */
+.ig__tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1.5px solid rgba(201, 164, 106, 0.5);
+}
+
+.ig__tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.ig__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(4, 24, 33, 0.6);
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.ig__overlay svg { width: 38px; height: 38px; color: var(--color-gold); }
+.ig__tile:hover img { transform: scale(1.08); }
+.ig__tile:hover .ig__overlay { opacity: 1; }
+
+.ig__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-gold);
+  background: var(--color-bg);
+  color: var(--color-gold);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+  z-index: 1;
+}
+
+.ig__arrow:hover { background: var(--color-gold); color: var(--color-bg); }
+.ig__arrow--prev { left: 0; }
+.ig__arrow--next { right: 0; }
+
+.ig__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.ig__dots button {
+  width: 30px;
+  height: 3px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+}
+
+.ig__dots .active { background: var(--color-gold); }
+
+@media (max-width: 767px) {
+  .ig { padding: 0 34px; }
+  .ig__item { padding: 0 6px; }
+  .ig__arrow { width: 32px; height: 32px; font-size: 1.3rem; }
+}

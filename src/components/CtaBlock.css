@@ -1,0 +1,50 @@
+.cta { position: relative; }
+
+.cta__content {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+}
+
+.cta__content p {
+  color: #fff;
+  margin-bottom: 26px;
+  font-size: 1rem;
+}
+
+/* ----- version with background photo ----- */
+.cta--bg {
+  overflow: hidden;
+  padding: 150px 0;
+}
+
+.cta__bg {
+  position: absolute;
+  inset: -12% 0; /* extra height for the parallax movement */
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.05);
+}
+
+/* dark overlay + fade into the page at top and bottom */
+.cta--bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, var(--color-bg) 0%, rgba(4, 24, 33, 0) 22%, rgba(4, 24, 33, 0) 78%, var(--color-bg) 100%),
+    rgba(4, 24, 33, var(--cta-overlay, 0.68));
+}
+
+.cta--bg .btn-gold {
+  font-size: 1.05rem;
+  padding: 11px 26px;
+  background: rgba(4, 24, 33, 0.35);
+}
+
+.cta--bg .btn-gold:hover { background: var(--color-gold); }
+
+@media (max-width: 767px) {
+  .cta--bg { padding: 100px 0; }
+  .cta__content p { font-size: 0.92rem; }
+}

@@ -1,0 +1,75 @@
+.promo { align-items: center; padding-bottom: 70px; }
+
+.promo__box {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6);
+  animation: promoPop 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+@keyframes promoPop {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.promo__box img {
+  width: auto;
+  max-width: min(900px, 90vw);
+  max-height: 82vh;
+}
+
+.promo__close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-gold);
+  background: var(--color-bg);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+
+.promo__close:hover {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+.promo__menu-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, 50%); /* sits on the bottom edge so it never covers the artwork */
+  line-height: 1.2;
+  padding: 6px 30px;
+  border: 0;
+  border-radius: 30px;
+  background: #d9541e; /* matches the orange "GRAND" text */
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  transition: background 0.25s, transform 0.25s;
+}
+
+.promo__menu-btn:hover {
+  background: var(--color-bg);
+  transform: translate(-50%, calc(50% - 2px));
+}
+
+@media (max-width: 767px) {
+  .promo__box img {
+    max-width: 86vw;
+    max-height: 78vh;
+  }
+  .promo__close { top: -14px; right: -12px; }
+}

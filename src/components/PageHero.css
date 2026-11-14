@@ -1,0 +1,56 @@
+.page-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: clamp(360px, 46vw, 560px);
+  padding: calc(var(--header-h) + 30px) 0 60px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* dark fade into the page background */
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 24, 33, 0.55) 0%,
+    rgba(4, 24, 33, 0.3) 45%,
+    var(--color-bg) 100%
+  );
+}
+
+.page-hero .container { position: relative; }
+
+/* Gold-bordered heading box – centred on every page (Media style) */
+.page-hero__title {
+  display: inline-block;
+  border: 1.5px solid var(--color-gold);
+  background: rgba(4, 24, 33, 0.55);
+  color: var(--color-gold);
+  font-size: clamp(1.8rem, 3.8vw, 3rem);
+  padding: 14px 40px;
+}
+
+.page-hero--lg .page-hero__title {
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  padding: 18px 56px;
+}
+
+@media (max-width: 767px) {
+  .page-hero {
+    min-height: 300px;
+    padding: calc(var(--header-h) + 20px) 0 40px;
+  }
+  .page-hero__title { padding: 10px 24px; }
+  .page-hero--lg .page-hero__title { padding: 12px 30px; }
+}
+
+/* wide title box (Menu page) */
+.page-hero--wide .page-hero__title {
+  min-width: min(585px, 86vw);
+  background: rgba(4, 24, 33, 0.7);
+}

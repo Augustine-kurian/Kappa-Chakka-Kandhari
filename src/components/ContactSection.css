@@ -1,0 +1,98 @@
+.contact-sec__title {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  margin-bottom: 22px;
+}
+
+.split--reverse .contact-sec__form { order: 2; }
+.split--reverse .contact-sec__img { order: 1; }
+
+.kck-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 10px;
+}
+
+.field { display: flex; flex-direction: column; }
+.field--full { grid-column: 1 / -1; }
+
+.field label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin: 0 0 6px 4px;
+}
+
+.field label span { color: var(--color-red); }
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 0.9rem;
+  color: #333;
+  background: #f5f5f5;
+  border: 1.5px solid var(--color-gold);
+  border-radius: 12px;
+  padding: 9px 14px;
+  outline: none;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a46a' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  box-shadow: 0 0 0 3px rgba(201, 164, 106, 0.3);
+}
+
+.field small {
+  color: #ff8a8a;
+  font-size: 0.78rem;
+  margin: 4px 0 0 4px;
+}
+
+.submit-btn {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #fff;
+  border-radius: 30px;
+  padding: 9px 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.submit-btn:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-bg);
+}
+
+.submit-btn:disabled { opacity: 0.6; cursor: wait; }
+
+.form-success,
+.form-error {
+  margin-top: 12px;
+  color: var(--color-gold);
+}
+
+.form-error { color: #ff8a8a; }
+
+.contact-sec__img img { width: 100%; }
+
+@media (max-width: 420px) {
+  .kck-form { gap: 14px 8px; }
+}

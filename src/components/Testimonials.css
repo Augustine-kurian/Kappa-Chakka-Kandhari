@@ -1,0 +1,98 @@
+.testimonials {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 0 90px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* fade into the page at top & bottom */
+.testimonials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--color-bg) 0%, rgba(4, 24, 33, 0.25) 18%, rgba(4, 24, 33, 0.25) 82%, var(--color-bg) 100%);
+}
+
+.testimonials .container { position: relative; }
+.testimonials .section-title { margin-bottom: 40px; }
+
+/* slides stack on top of each other and cross-fade */
+.testimonials__slider {
+  display: grid;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.testimonial {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0 30px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease, visibility 0.7s;
+}
+
+.testimonial.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.testimonial__mark {
+  font-family: Georgia, serif;
+  font-size: 150px;
+  line-height: 0.8;
+  height: 70px;
+  color: var(--color-gold);
+  text-align: right;
+}
+
+.testimonial__body blockquote {
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  border-left: 1.5px solid var(--color-gold);
+  padding-left: 36px;
+  margin-bottom: 26px;
+}
+
+.testimonial__body figcaption {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+}
+
+.testimonials__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.testimonials__dots button {
+  width: 40px;
+  height: 4px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.testimonials__dots button.active,
+.testimonials__dots button:hover { background: #fff; }
+
+@media (max-width: 767px) {
+  .testimonials { padding: 80px 0 60px; }
+  .testimonial { grid-template-columns: 1fr; }
+  .testimonial__mark {
+    font-size: 110px;
+    height: 50px;
+    text-align: left;
+  }
+  .testimonial__body blockquote {
+    font-size: 0.95rem;
+    padding-left: 20px;
+  }
+}
