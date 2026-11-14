@@ -1,3 +1,6 @@
+// Web3Forms key – create it free at https://web3forms.com using info@kappachakkakandhari.com
+// export const WEB3FORMS_KEY = ''
+
 // ===== Central site data – edit links/phones here once, used everywhere =====
 
 export const CONTACT = {

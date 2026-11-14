@@ -1,4 +1,4 @@
-import { CONTACT, WEB3FORMS_KEY } from '../data/site.js'
+// import { CONTACT, WEB3FORMS_KEY } from '../data/site.js'
 
 /**
  * Sends a form enquiry by email to info@kappachakkakandhari.com.
@@ -15,7 +15,7 @@ export default async function sendEnquiry(fields) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
+          // access_key: WEB3FORMS_KEY,
           subject,
           from_name: 'Kappa Chakka Kandhari Website',
           replyto: fields.Email,
