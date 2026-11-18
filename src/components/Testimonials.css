@@ -32,12 +32,18 @@
   opacity: 0;
   visibility: hidden;
   transform: translateX(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease, visibility 0.7s;
 }
 
-.testimonial.is-active {
-  opacity: 1;
+/* the review on screen (fading in or out) */
+.testimonial.is-current {
   visibility: visible;
+  transform: translateX(-30px); /* while fading out it drifts left */
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+/* fully visible */
+.testimonial.is-current.is-shown {
+  opacity: 1;
   transform: none;
 }
 
