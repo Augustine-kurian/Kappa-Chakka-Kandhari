@@ -2,38 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    
-     <!-- Favicons (square KCK monogram – Google needs a square icon) -->
-      <link rel="icon" href="/favicon.ico" sizes="48x48" />
-      <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-      <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kappa Chakka Kandhari – authentic Kerala cuisine." />
     <meta name="theme-color" content="#1b1410" />
+    <title>Kappa Chakka Kandhari</title>
 
-    <!-- GA4 Analytics -->
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-NW9326FW"></script>
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Google Tag Manager (GA4 is configured inside GTM) -->
     <script>
-       window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-NW9326FW');
     </script>
-     <!-- End GA4 Analytics -->
+    <!-- End Google Tag Manager -->
 
-     <!-- Microsoft Clarity -->
-      <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "zczo6xwhzk");
-      </script>
-      <!--End Microsoft Clarity -->
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "zczo6xwhzk");
+    </script>
+    <!-- End Microsoft Clarity -->
 
-
-    <!-- Meta Pixel Code -->
-      <script>
+    <!-- Meta Pixel Code (script part stays in head) -->
+    <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -44,17 +45,18 @@
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '1308326368040219');
       fbq('track', 'PageView');
-      </script>
-      <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1308326368040219&ev=PageView&noscript=1"
-      ></noscript>
+    </script>
     <!-- End Meta Pixel Code -->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Kappa Chakka Kandhari – authentic Kerala cuisine." />
-    <title>Kappa Chakka Kandhari</title>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) – must be in body -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW9326FW"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Meta Pixel (noscript) – moved from head to body, this was breaking the build -->
+    <noscript><img height="1" width="1" style="display:none" alt=""
+      src="https://www.facebook.com/tr?id=1308326368040219&ev=PageView&noscript=1" /></noscript>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
